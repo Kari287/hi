@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Bezier and Quadratic Curves Example</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="480" height="400"></canvas>
+    <script>
+        const canvas = document.getElementById("myCanvas");
+        const ctx = canvas.getContext("2d");
+
+        // Draw a quadratic curve
+        ctx.beginPath();
+        ctx.moveTo(50, 50);
+        ctx.quadraticCurveTo(100, 25, 150, 50);
+        ctx.stroke();
+
+        // Draw a cubic Bezier curve
+        ctx.beginPath();
+        ctx.moveTo(200, 50);
+        ctx.bezierCurveTo(200, 25, 250, 25, 250, 50);
+        ctx.stroke();
+
+        // Draw a quadratic Bezier curve
+        ctx.beginPath();
+        ctx.moveTo(50, 150);
+        ctx.quadraticCurveTo(75, 125, 100, 150);
+        ctx.quadraticCurveTo(125, 175, 150, 150);
+        ctx.stroke();
+
+        // Draw a cubic Bezier curve with control points
+        ctx.beginPath();
+        ctx.moveTo(200, 150);
+        ctx.bezierCurveTo(200, 125, 250, 125, 250, 150);
+        ctx.bezierCurveTo(250, 175, 200, 175, 200, 150);
+        ctx.stroke();
+    </script>
+</body>
+</html>

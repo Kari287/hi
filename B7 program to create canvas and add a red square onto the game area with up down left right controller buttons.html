@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Canvas Game</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas" width="480" height="400"></canvas>
+    <script>
+        var canvas = document.getElementById("gameCanvas");
+        var context = canvas.getContext("2d");
+
+        // Set initial position of the square
+        var squarex = 200;
+        var squarey = 200;
+        var squareSize = 50;
+
+        // Function to draw the square
+        function drawSquare() {
+            context.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
+            context.fillStyle = "red";
+            context.fillRect(squarex, squarey, squareSize, squareSize);
+        }
+
+        // Function to handle keyboard input
+        function handleKeyDown(event) {
+            var keyCode = event.keyCode;
+            switch (keyCode) {
+                case 37: // Left arrow key
+                    squarex -= 10;
+                    break;
+                case 38: // Up arrow key
+                    squarey -= 10;
+                    break;
+                case 39: // Right arrow key
+                    squarex += 10;
+                    break;
+                case 40: // Down arrow key
+                    squarey += 10;
+                    break;
+            }
+            drawSquare();
+        }
+
+        // Add event listeners for keydown events
+        document.addEventListener("keydown", handleKeyDown);
+
+        // Draw the initial square
+        drawSquare();
+    </script>
+</body>
+</html>
